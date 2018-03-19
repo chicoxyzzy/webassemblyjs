@@ -18,34 +18,38 @@ function createCheck(actualWat) {
   const targetFixturePath = path.dirname(actualWat);
   const actualWasm = path.join(targetFixturePath, "actual.wasm");
 
-  exec(`wat2wasm ${actualWat} -o ${actualWasm}`).then(() => {
-    const bin = toArrayBuffer(readFileSync(actualWasm));
-    const ast = decode(bin);
+  exec(`wat2wasm ${actualWat} -o ${actualWasm} --debug-names`)
+    .then(() => {
+      const bin = toArrayBuffer(readFileSync(actualWasm));
+      const ast = decode(bin);
 
-    const expectedFile = path.join(targetFixturePath, "expected.json");
-    const code = JSON.stringify(ast, null, 2);
+      const expectedFile = path.join(targetFixturePath, "expected.json");
+      const code = JSON.stringify(ast, null, 2);
 
-    let expected;
-    try {
-      expected = readFileSync(expectedFile, "utf8");
-      expected = JSON.stringify(JSON.parse(expected), null, 2);
-    } catch (e) {
-      expected = code;
-      writeFileSync(expectedFile, code);
-      console.log("Write expected file", expectedFile);
-    }
+      let expected;
+      try {
+        expected = readFileSync(expectedFile, "utf8");
+        expected = JSON.stringify(JSON.parse(expected), null, 2);
+      } catch (e) {
+        expected = code;
+        writeFileSync(expectedFile, code);
+        console.log("Write expected file", expectedFile);
+      }
 
-    const out = diff(code.trim(), expected.trim());
+      const out = diff(code.trim(), expected.trim());
 
-    if (out !== null && out !== NO_DIFF_MESSAGE) {
-      throw new Error("\n" + out);
-    }
+      if (out !== null && out !== NO_DIFF_MESSAGE) {
+        throw new Error("\n" + out);
+      }
 
-    // When one line the error is not caught
-    if (code.trim() !== expected.trim()) {
-      throw new Error("Assertion error");
-    }
-  });
+      // When one line the error is not caught
+      if (code.trim() !== expected.trim()) {
+        throw new Error("Assertion error");
+      }
+    })
+    .catch(e => {
+      console.error(e);
+    });
 }
 
 describe("compiler", () => {

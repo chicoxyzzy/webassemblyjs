@@ -35,7 +35,7 @@
           "type": "Func",
           "name": {
             "type": "Identifier",
-            "value": "func_1"
+            "value": "func_0"
           },
           "params": [
             {
@@ -114,7 +114,7 @@
           "type": "Func",
           "name": {
             "type": "Identifier",
-            "value": "func_2"
+            "value": "func_1"
           },
           "params": [
             {
@@ -196,7 +196,7 @@
             "type": "Func",
             "id": {
               "type": "Identifier",
-              "value": "func_1"
+              "value": "func_0"
             }
           },
           "loc": {
@@ -217,7 +217,7 @@
             "type": "Func",
             "id": {
               "type": "Identifier",
-              "value": "func_2"
+              "value": "func_1"
             }
           },
           "loc": {
@@ -233,6 +233,7 @@
         }
       ],
       "metadata": {
+        "type": "ModuleMetadata",
         "sections": [
           {
             "type": "SectionMetadata",
@@ -261,6 +262,13 @@
             "startOffset": 42,
             "size": 17,
             "vectorOfSize": 2
+          },
+          {
+            "type": "SectionMetadata",
+            "section": "custom",
+            "startOffset": 61,
+            "size": 20,
+            "vectorOfSize": -1
           }
         ]
       }

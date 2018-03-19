@@ -112,7 +112,7 @@
           "type": "Func",
           "name": {
             "type": "Identifier",
-            "value": "func_1"
+            "value": "func_0"
           },
           "params": [],
           "result": [],
@@ -162,6 +162,7 @@
         }
       ],
       "metadata": {
+        "type": "ModuleMetadata",
         "sections": [
           {
             "type": "SectionMetadata",
@@ -197,6 +198,13 @@
             "startOffset": 73,
             "size": 8,
             "vectorOfSize": 1
+          },
+          {
+            "type": "SectionMetadata",
+            "section": "custom",
+            "startOffset": 83,
+            "size": 14,
+            "vectorOfSize": -1
           }
         ]
       }

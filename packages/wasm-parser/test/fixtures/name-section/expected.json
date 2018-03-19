@@ -23,35 +23,10 @@
           }
         },
         {
-          "type": "Table",
-          "elementType": "anyfunc",
-          "limits": {
-            "type": "Limit",
-            "min": 1
-          }
-        },
-        {
-          "type": "Start",
-          "index": {
-            "type": "NumberLiteral",
-            "value": 0
-          },
-          "loc": {
-            "start": {
-              "line": -1,
-              "column": 33
-            },
-            "end": {
-              "line": -1,
-              "column": 34
-            }
-          }
-        },
-        {
           "type": "Func",
           "name": {
             "type": "Identifier",
-            "value": "a"
+            "value": "fnName"
           },
           "params": [],
           "result": [],
@@ -59,11 +34,11 @@
           "loc": {
             "start": {
               "line": -1,
-              "column": 37
+              "column": 28
             },
             "end": {
               "line": -1,
-              "column": 40
+              "column": 31
             }
           },
           "metadata": {
@@ -77,17 +52,17 @@
             "type": "Func",
             "id": {
               "type": "Identifier",
-              "value": "a"
+              "value": "fnName"
             }
           },
           "loc": {
             "start": {
               "line": -1,
-              "column": 27
+              "column": 21
             },
             "end": {
               "line": -1,
-              "column": 31
+              "column": 25
             }
           }
         }
@@ -111,44 +86,30 @@
           },
           {
             "type": "SectionMetadata",
-            "section": "table",
-            "startOffset": 19,
-            "size": 4,
-            "vectorOfSize": 1
-          },
-          {
-            "type": "SectionMetadata",
             "section": "export",
-            "startOffset": 25,
+            "startOffset": 19,
             "size": 5,
             "vectorOfSize": 1
           },
           {
             "type": "SectionMetadata",
-            "section": "start",
-            "startOffset": 32,
-            "size": 1,
-            "vectorOfSize": -1
-          },
-          {
-            "type": "SectionMetadata",
             "section": "code",
-            "startOffset": 35,
+            "startOffset": 26,
             "size": 4,
             "vectorOfSize": 1
           },
           {
             "type": "SectionMetadata",
             "section": "custom",
-            "startOffset": 41,
-            "size": 16,
+            "startOffset": 32,
+            "size": 21,
             "vectorOfSize": -1
           }
         ],
         "functionNames": [
           {
             "type": "FunctionNameMetadata",
-            "value": "a",
+            "value": "fnName",
             "index": 0
           }
         ]

@@ -67,6 +67,7 @@ function walk(n: Node, cb: Cb, parentPath: ?NodePath<Node>) {
     }
 
     case "SectionMetadata":
+    case "FunctionNameMetadata":
     case "ModuleExport":
     case "Data":
     case "Memory":
@@ -79,7 +80,17 @@ function walk(n: Node, cb: Cb, parentPath: ?NodePath<Node>) {
     case "BlockComment":
     case "Identifier": {
       cb(n.type, createPath(n, parentPath));
+      break;
+    }
 
+    case "ModuleMetadata": {
+      const path = createPath(n, parentPath);
+      cb(n.type, createPath(n, path));
+      n.sections.forEach(x => walk(x, cb, path));
+
+      if (typeof n.functionNames !== "undefined") {
+        n.functionNames.forEach(x => walk(x, cb, path));
+      }
       break;
     }
 
@@ -93,7 +104,7 @@ function walk(n: Node, cb: Cb, parentPath: ?NodePath<Node>) {
 
       if (typeof n.metadata !== "undefined") {
         // $FlowIgnore
-        n.metadata.sections.forEach(x => walk(x, cb, path));
+        walk(n.metadata, cb, path);
       }
 
       break;
